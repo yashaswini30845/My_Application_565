@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Floating Letters</title>
+	<style>
+		.letter-container {
+			position: relative;
+			width: 100vw;
+			height: 100vh;
+			background-color: #bcdf9c;
+			overflow: hidden;
+		}
+		
+		.letter {
+			position: absolute;
+			font-size: 48px;
+			font-family: Arial, sans-serif;
+			color: #ff0000;
+			animation: float 15s infinite linear;
+		}
+		
+		@keyframes float {
+			0% {
+				transform: translate(0, 0) scale(1);
+				opacity: 1;
+			}
+			100% {
+				transform: translate(100vw, 100vh) scale(0.5);
+				opacity: 0;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="letter-container">
+		<!-- Generate letters dynamically or manually -->
+        <span class="letter" style="top: 5%; left: 10%;">HOOREEN</span>
+
+		<span class="letter" style="top: 10%; right: 40%;">FATHIMA</span>
+       
+		<!-- Add more letters as needed -->
+	</div>
+	
+	<script>
+		// Generate letters dynamically
+		const letters = '***';
+		const container = document.querySelector('.letter-container');
+		
+		for (let i = 0; i < letters.length; i++) {
+			const letter = document.createElement('span');
+			letter.textContent = letters[i];
+			letter.className = 'letter';
+			letter.style.top = `${Math.random() * 100}%`;
+			letter.style.left = `${Math.random() * 100}%`;
+			container.appendChild(letter);
+		}
+	</script>
+</body>
+</html>
